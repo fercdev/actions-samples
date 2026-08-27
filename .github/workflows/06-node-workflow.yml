@@ -1,4 +1,4 @@
-name: workflow con uses
+name: workflow con uses nodejs
 
 on:
   push:
