@@ -1,0 +1,26 @@
+name: workflow secuencial
+
+on:
+  push:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Ejecutar tests
+        run: echo "Ejecutando tests desde Actions"
+
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Construir proyecto
+        run: echo "Construyendo proyecto desde Actions"
+
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Desplegando proyecto
+        run: echo "Desplegando proyecto desde Actions"
