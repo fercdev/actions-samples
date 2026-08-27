@@ -1,0 +1,16 @@
+name: Invocacion manual workflow
+
+on:
+  workflow_dispatch:
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar data
+        run: echo "Hola mundo desde Actions - manual"
+      - name: Mostrar fecha
+        run: date
+      - name: Show User
+        run: whoami
