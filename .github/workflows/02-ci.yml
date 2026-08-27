@@ -1,0 +1,20 @@
+name: First CI
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar data
+        run: |
+          echo "Hola mundo desde Actions"
+          echo "Otro mensaje, otro comando"
+      - name: Verificar si existe node -v
+        run: node -v
+      - name: Verificar si existe npm -v
+        run: npm -v
