@@ -70,5 +70,5 @@ jobs:
           echo "Host: $HOSTNAME"
           echo "Arch: $(uname -m)"
           echo "Nombre del runner: $RUNNER_NAME"
-          echo "Versión del runner: $RUNNER_VERSION"
           echo "Directorio de trabajo: $RUNNER_WORKSPACE"
+          echo "Node version: $(node -v)"
