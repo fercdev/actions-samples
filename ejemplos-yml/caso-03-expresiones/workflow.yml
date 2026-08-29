@@ -43,3 +43,29 @@ jobs:
           echo "startsWith: ${{ startsWith(inputs.branch, 'ma') }}"
           echo "endsWith: ${{ endsWith(inputs.branch, 'in') }}"
           echo "toJSON: ${{ toJSON(inputs) }}"
+
+      - name: Step Condicional en caso no sea master
+        if: ${{ inputs.branch != 'master' }}
+        run: echo "No estoy en la rama master"
+      
+      - name: "Step que funciona solo cuando ocurre un Success()"
+        if: success()
+        run: echo "Todos los steps anteriores fueron exitosos"
+
+      - name: Step que falla intencionalmente por el input
+        if: ${{ inputs.forzar_falla == 'true' }}
+        run: |
+          echo "Fallo intencional"
+          exit 1
+      - name: "Step que funciona siempre: always()"
+        if: always()
+        run: echo "Este step siempre se ejecuta, incluso si los anteriores fallan"
+
+      - name: "Step function: failure()"
+        if: failure()
+        run: echo "Este step solo se ejecuta si algún step anterior falla"
+      
+      - name: "Step function: cancelled()"
+        if: cancelled()
+        run: echo "Este step solo se ejecuta cuando el workflow fue cancelado por el usuario"
+      
