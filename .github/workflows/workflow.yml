@@ -16,3 +16,25 @@ jobs:
           echo "Nombre del runner: $RUNNER_NAME"
           echo "Versión del runner: $RUNNER_VERSION"
           echo "Directorio de trabajo: $RUNNER_WORKSPACE"
+  
+  test-node:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: [18, 20, 22]
+
+    steps:
+      - name: Checkout de codigo
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js ${{ matrix.node }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
+        
+      - name: Check node version
+        run: node -v
+
+      - name: check npm version
+        run: npm -v
