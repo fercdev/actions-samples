@@ -36,3 +36,10 @@ jobs:
           echo "AND:  ${{ inputs.branch == 'main' && inputs.nivel == 'info' }}"
           echo "OR:  ${{ inputs.branch == 'main' || inputs.nivel == 'error' }}"
           echo "NOT:  ${{ !(inputs.branch == 'develop') }}"
+      
+      - name: Funciones con el string
+        run: |
+          echo "contains: ${{ contains(inputs.branch, 'master') }}"
+          echo "startsWith: ${{ startsWith(inputs.branch, 'ma') }}"
+          echo "endsWith: ${{ endsWith(inputs.branch, 'in') }}"
+          echo "toJSON: ${{ toJSON(inputs) }}"
