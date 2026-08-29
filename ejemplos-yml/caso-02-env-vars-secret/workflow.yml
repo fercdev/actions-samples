@@ -60,9 +60,9 @@ jobs:
 
       - name: Mostrar secret (data sensible) / no muestra el valor real
         run: |
-          echo "API_TOKEN : ${{ secrets.TARGET_ENV }}"
+          echo "API_TOKEN : ${{ secrets.API_TOKEN }}"
 
       - name: Mostrar secret (data sensible)
         run: |
           echo "API_TOKEN : ${{ secrets.API_TOKEN }}"
-          echo "API_TOKEN=${{#API_TOKEN}}"
+          echo "API_TOKEN=${#secrets.API_TOKEN}"
