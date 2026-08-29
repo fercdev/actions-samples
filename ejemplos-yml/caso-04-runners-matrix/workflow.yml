@@ -72,3 +72,9 @@ jobs:
           echo "Nombre del runner: $RUNNER_NAME"
           echo "Directorio de trabajo: $RUNNER_WORKSPACE"
           echo "Node version: $(node -v)"
+      
+      - name: Trabjar con MacOs y node
+        if: ${{ matrix.os == 'macos-latest' && matrix.node == 22 }}
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node }}
