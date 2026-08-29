@@ -65,4 +65,4 @@ jobs:
       - name: Mostrar secret (data sensible)
         run: |
           echo "API_TOKEN : ${{ secrets.API_TOKEN }}"
-          echo "API_TOKEN=${{#API_TOKEN}}"
+          echo "API_TOKEN=${#API_TOKEN}"
