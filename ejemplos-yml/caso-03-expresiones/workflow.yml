@@ -53,7 +53,7 @@ jobs:
         run: echo "Todos los steps anteriores fueron exitosos"
 
       - name: Step que falla intencionalmente por el input
-        if: ${{ inputs.forzar_falla == 'true' }}
+        if: ${{ inputs.forzar_falla == true }}
         run: |
           echo "Fallo intencional"
           exit 1
