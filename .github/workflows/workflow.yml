@@ -52,7 +52,7 @@ jobs:
         if: ${{ github.event_name == 'workflow_dispatch' }}
         run: |
           echo "Environment: ${{ github.event.inputs.environment }}"
-          echo "Environment: ${{ inputs.environment }}"
+          echo "Environment_inputs: ${{ inputs.environment }}"
       
       - name: Datos sobre el evento de pull_request
         if: ${{ github.event_name == 'pull_request' }}
