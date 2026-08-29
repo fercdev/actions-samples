@@ -1,4 +1,4 @@
-name: Caso 02 ENVS
+name: Hello World Github Actions
 
 on:
   workflow_dispatch:
@@ -48,3 +48,21 @@ jobs:
           echo "STAGE: ${{ env.STAGE }}"
           echo "NOMBRE: ${{ env.NOMBRE }}"
           echo "Saludo: ${{ env.SALUDO }}"
+  
+  
+  demo-vars-secrets:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar configuracion de variable (data no sensible)
+        run: |
+          echo "TARGET : ${{ vars.TARGET_ENV }}"
+
+      - name: Mostrar secret (data sensible) / no muestra el valor real
+        run: |
+          echo "API_TOKEN : ${{ secrets.TARGET_ENV }}"
+
+      - name: Mostrar secret (data sensible)
+        run: |
+          echo "API_TOKEN : ${{ secrets.API_TOKEN }}"
+          echo "API_TOKEN=${{#API_TOKEN}}"
