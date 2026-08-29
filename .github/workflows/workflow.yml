@@ -1,0 +1,63 @@
+name: Caso 01 Triggers
+
+on:
+
+  # escenarion en el cual queremos publicar el workflow en la rama "master", pero ignorando los siguientes Paths (archivos y carpetas)
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - README.md
+      - docs/**
+      - '**.md'
+
+  # caso2: Cualquier Pull Request hacia la rama "master"
+  pull_request:
+    branches:
+      - master
+    types: # Tipos de eventos de Pull Request que dispararán el workflow
+      - opened
+      - synchronize
+      - reopened
+
+  # caso3: Cualquier evento que dispare el workflow
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'El entorno en el cual se ejecutará el workflow'
+        required: true
+        type: choice # Tipo de entrada (seleecionable)
+        default: 'dev'
+        options:
+          - dev
+          - staging
+          - prod
+  # caso4: Cron schedule (utilizar la expresion Cron, recordar que usa la zona horaria UTC)
+  schedule:
+    - cron: '*/15 * * * *' # Ejecutar cada 15 minutos
+
+jobs:
+  show-events:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Identificar Evento
+        run: |
+          echo "Evento que disparó el workflow: ${{ github.event_name }}"
+          echo "Ref:: ${{ github.ref }}"
+          echo "SHA:: ${{ github.sha }}"
+          echo "Actor:: ${{ github.actor }}"
+      
+      - name: Inputs del workflow
+        if: ${{ github.event_name == 'workflow_dispatch' }}
+        run: |
+          echo "Environment: ${{ github.event.inputs.environment }}"
+          echo "Environment: ${{ inputs.environment }}"
+      
+      - name: Datos sobre el evento de pull_request
+        if: ${{ github.event_name == 'pull_request' }}
+        run: |
+          echo "Pull Request ID: ${{ github.event.pull_request.id }}"
+          echo "Pull Request Title: ${{ github.event.pull_request.title }}"
+          echo "Pull Request Body: ${{ github.event.pull_request.body }}"
+          echo "Pull Request User: ${{ github.event.pull_request.user.login }}"
