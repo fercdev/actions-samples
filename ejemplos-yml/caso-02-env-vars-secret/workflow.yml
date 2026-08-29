@@ -1,4 +1,4 @@
-name: Caso 02 ENVS
+name: Hello World Github Actions
 
 on:
   workflow_dispatch:
