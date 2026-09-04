@@ -14,5 +14,5 @@ jobs:
       - name: Simula build
         run: echo "Simulando build...."
 
-      - name: Simula deploy
-        run: echo "Simulando deploy...."
+      - name: simular error
+        run: exit 1
