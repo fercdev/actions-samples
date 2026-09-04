@@ -4,7 +4,7 @@ on:
   workflow_call:
     inputs:
       node-version:
-        type: string
+        type: string # recibe el tipo de dato (string, number, boolean, etc.)
         description: 'Node.js version to use'
         required: true
         default: '16'

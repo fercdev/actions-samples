@@ -1,4 +1,4 @@
-name: workflow con output
+name: workflow reutilizable con parametros
 
 on:
   push:

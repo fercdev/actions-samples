@@ -1,0 +1,21 @@
+name: workflow reutilizable con parametros
+
+on:
+  workflow_call:
+    inputs:
+      run-step:
+        type: boolean
+        description: 'Flag para ejecutar un step'
+        required: true
+        default: true
+
+
+jobs:
+  builder:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - name: Mostrar mensaje segun condicional
+        if: ${{ inputs.run-step }}
+        run: echo "El step se ejecuta porque run-step es true"

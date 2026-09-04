@@ -1,0 +1,20 @@
+name: workflow reutilizable con parametros
+
+on:
+  workflow_call:
+    inputs:
+      replicas:
+        type: number
+        description: 'Número de réplicas a utilizar'
+        required: true
+        default: 2
+
+
+jobs:
+  builder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Mostrar número de réplicas
+        run: |
+          echo "Número de réplicas: ${{ inputs.replicas }}"

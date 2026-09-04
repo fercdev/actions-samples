@@ -1,0 +1,12 @@
+name: Invocador Workflow (node 20)
+on:
+  push:
+    branches:
+      - master
+
+
+jobs:
+  example-builder:
+    uses: ./.github/workflows/reusable-workflow.yml
+    with:
+      run-step: true
