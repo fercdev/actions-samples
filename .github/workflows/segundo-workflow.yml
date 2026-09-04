@@ -4,7 +4,7 @@ on:
   workflow_run:
     workflows: ["Basico Workflow"]
     types:
-      - completed
+      - requested
 
 jobs:
   hola:

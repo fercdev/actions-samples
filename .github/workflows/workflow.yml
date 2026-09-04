@@ -10,3 +10,6 @@ jobs:
     steps:
       - name: Say hello
         run: echo "Hola mundo desde Actions"
+
+      - name: Simulando segundo paso
+        run: echo "Segundo paso en actions"
