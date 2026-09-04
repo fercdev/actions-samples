@@ -43,3 +43,6 @@ jobs:
 
       - name: simulando paso 10
         run: echo "Simulando paso 10...."
+      
+      - name: sleep 60 secs
+        run: sleep 60
