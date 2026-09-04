@@ -25,7 +25,8 @@ jobs:
       
       - id: node-version
         name: set output
-        run: echo "version=$(node -v)" >> $GITHUB_OUTPUT
+        run: |
+          echo "version=$(node -v)" >> "$GITHUB_OUTPUT"
 
       - name: Final message
         run: echo "Build simulation complete"
