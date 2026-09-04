@@ -14,6 +14,14 @@ jobs:
     steps:
       - name: Workflow inicial finalizo correctamente
         run: echo "Workflow inicial finalizo correctamente"
+
+      - name: Info del event workflow_run
+        run: |
+          echo "workflow Name: ${{ github.event.workflow_run.name }}"
+          echo "workflow ID: ${{ github.event.workflow_run.id }}"
+          echo "workflow Conclusion: ${{ github.event.workflow_run.conclusion }}"
+          echo "workflow Status: ${{ github.event.workflow_run.status }}"
+      
   failure:
     if: ${{ github.event.workflow_run.conclusion == 'failure' }}
     runs-on: ubuntu-latest
