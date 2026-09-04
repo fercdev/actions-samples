@@ -21,3 +21,11 @@ jobs:
     steps:
       - name: Workflow inicial fallo
         run: echo "Workflow inicial fallo"
+
+  cancelled:
+    if: ${{ github.event.workflow_run.conclusion == 'cancelled' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Workflow inicial fue cancelado
+        run: echo "Workflow inicial fue cancelado"
