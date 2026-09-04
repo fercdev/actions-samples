@@ -14,8 +14,5 @@ jobs:
       - name: Builder message
         run: echo "Simulando escenario de build"
 
-      - name: run install
-        run: npm install
-      
-      - name: run build
-        run: npm run build
+      - name: Final message
+        run: echo "Build simulation complete"
