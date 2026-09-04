@@ -5,7 +5,7 @@ on:
     outputs:
       version:
         description: "Versión de npm"
-        value: ${{ jobs.builder.steps.npm-version.outputs.version }}
+        value: ${{ jobs.builder.steps.node-version.outputs.version }}
 
 jobs:
   builder:
@@ -17,12 +17,8 @@ jobs:
         with:
           node-version: '20'
 
-      # - id: version
-      #   run: echo "::set-output name=version::$(npm -v)"
-
-      - id: npm-version
-        run: |
-          echo "version=$(npm -v)"
+      - id: node-version
+        run: echo "::set-output name=version::$(node -v)"
 
       - name: Final message
         run: echo "Build simulation complete"
