@@ -5,7 +5,7 @@ on:
     outputs:
       version:
         description: "Versión de npm"
-        value: ${{ steps.version.outputs.version }}
+        value: ${{ jobs.builder.steps.npm-version.outputs.version }}
 
 jobs:
   builder:
@@ -20,7 +20,7 @@ jobs:
       # - id: version
       #   run: echo "::set-output name=version::$(npm -v)"
 
-      - id: version
+      - id: npm-version
         run: |
           echo "version=$(npm -v)"
 
