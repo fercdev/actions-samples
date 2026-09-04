@@ -1,0 +1,28 @@
+name: workflow reutilizable con un output
+
+on:
+  workflow_call:
+    outputs:
+      version:
+        description: "Versión de npm"
+        value: ${{ steps.version.outputs.version }}
+
+jobs:
+  builder:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '20'
+
+      # - id: version
+      #   run: echo "::set-output name=version::$(npm -v)"
+
+      - id: version
+        run: |
+          echo "version=$(npm -v)"
+
+      - name: Final message
+        run: echo "Build simulation complete"
