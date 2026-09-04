@@ -1,0 +1,23 @@
+name: Escucha workflow
+
+on:
+  workflow_run:
+    workflows: ["Inicial workflow"]
+    types:
+      - completed
+
+jobs:
+  success:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Workflow inicial finalizo correctamente
+        run: echo "Workflow inicial finalizo correctamente"
+  failure:
+    if: ${{ github.event.workflow_run.conclusion == 'failure' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Workflow inicial fallo
+        run: echo "Workflow inicial fallo"
