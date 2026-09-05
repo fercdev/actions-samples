@@ -28,8 +28,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6
 
-      - name: sleep 60
-        run: sleep 120
+      - name: sleep 90
+        run: sleep 90
 
       - name: Run tests
         run: echo Running tests...
