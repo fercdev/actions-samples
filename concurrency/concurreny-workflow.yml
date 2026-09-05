@@ -1,4 +1,4 @@
-name: Workflow basico concurrency
+name: Workflow concurrency ci backend
 
 on:
   push:
@@ -7,12 +7,32 @@ on:
 
 
 concurrency:
-  group: my-group
+  group: ci-${{ github.ref }}
   cancel-in-progress: true
 
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: setup node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+      
+      - name: show node version
+        run: node -v
+
+      - name: Run a multi-line script
+        run: |
+          echo test project.
+
+
   build:
+    needs: test
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -27,6 +47,7 @@ jobs:
           echo test, and deploy your project.
   
   deploy:
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -34,3 +55,6 @@ jobs:
 
       - name: Deploy
         run: echo Deploying application...
+      
+      - name: sleep 70
+        run: sleep 70

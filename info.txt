@@ -3,9 +3,15 @@ Informativo para un repositorio demo con github actions
 Segunda linea de modificaciones
 
 
+Ejemplos a nivel de job
+-----------------------------
 1- Feature 1
 2- Feature 2
 3- Feature 3
 4- Feature 4
 5- Feature 5
 6- Feature 6
+
+Ejemplos a nivel de workflow
+-----------------------------
+1- Feature 1
