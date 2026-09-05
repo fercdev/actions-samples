@@ -1,0 +1,5 @@
+# Premisa 1: Validación básica en cada cambio
+
+Cada vez que alguien suba cambios al repositorio o abra/actualice un pull request, se debe ejecutar automáticamente la suite de pruebas del proyecto Node.js ubicado en `app-node/`.
+
+El workflow debe ejecutarse en Ubuntu, instalar Node.js 20 y detener el proceso si las pruebas fallan. También debe poder ejecutarse manualmente desde la pestaña Actions para repetir una validación sin crear un commit.

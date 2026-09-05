@@ -1,0 +1,5 @@
+# Premisa 2: Comprobación en varias versiones de Node.js
+
+El proyecto debe probarse automáticamente en Node.js 18, 20 y 22 cuando se suban cambios o se modifique un pull request.
+
+Las ejecuciones deben ser independientes: si una versión falla, las demás deben continuar para obtener una visión completa de compatibilidad. El workflow debe evitar repetir la instalación innecesariamente usando la caché integrada de `setup-node` basada en `app-node/package-lock.json`.

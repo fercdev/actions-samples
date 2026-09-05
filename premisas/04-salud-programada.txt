@@ -1,0 +1,5 @@
+# Premisa 4: Reporte de salud programado
+
+El equipo quiere una comprobación diaria de salud del proyecto, además de poder ejecutarla manualmente. La automatización debe instalar Node.js 20, ejecutar las pruebas y generar un reporte de texto con la fecha, la versión de Node y el resultado de las pruebas.
+
+El reporte debe publicarse como un artefacto con retención de 14 días. La ejecución programada debe usar una expresión cron diaria en UTC y el job debe disponer únicamente de permisos de lectura del contenido del repositorio.

@@ -1,0 +1,5 @@
+# Premisa 3: Separar calidad y empaquetado
+
+Para cada pull request y para cada push a la rama `master`, primero se deben ejecutar las pruebas del proyecto Node.js. Solo si las pruebas terminan correctamente se debe generar un paquete de distribución con los archivos de `app-node/` y conservarlo como artefacto descargable.
+
+El artefacto debe tener una retención de siete días y el workflow también debe poder iniciarse manualmente.

@@ -1,0 +1,5 @@
+# Premisa 5: Flujo de integración con aprobación de publicación
+
+Cuando se actualice `master` o se lance el workflow manualmente, se debe ejecutar un flujo de integración con tres etapas: validar el proyecto, construir un paquete y publicar un resumen de la ejecución.
+
+La validación debe incluir una matriz de Node.js 18 y 20. La construcción solo puede comenzar cuando todas las validaciones pasen, debe producir un artefacto único y debe reutilizar la caché de npm. El resumen final debe ejecutarse aunque una etapa anterior falle, indicar el estado de cada etapa y no exponer información sensible. El workflow debe solicitar solo permisos de lectura del contenido.
