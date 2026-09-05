@@ -48,3 +48,6 @@ jobs:
 
       - name: Deploy
         run: echo Deploying application...
+
+      - name: Sleep for 60 seconds
+        run: sleep 60
