@@ -1,0 +1,27 @@
+name: Deploy workflow concurrency
+
+on:
+  workflow_run:
+    workflows: ["backend-ci"]
+    types:
+      - completed
+
+
+concurrency:
+  group: production
+  cancel-in-progress: false
+
+
+jobs:
+  deploy:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Deploy
+        run: |
+          echo Deploying application...
+          sleep 60
+          echo Application deployed successfully!
