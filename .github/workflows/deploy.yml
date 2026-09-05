@@ -23,5 +23,5 @@ jobs:
       - name: Deploy
         run: |
           echo Deploying application...
-          sleep 60
+          sleep 80
           echo Application deployed successfully!
